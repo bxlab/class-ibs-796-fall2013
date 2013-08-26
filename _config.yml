@@ -1,0 +1,16 @@
+#markdown: rdiscount
+pygments: true
+#permalink: /posts/:title
+rdiscount:
+  extensions: [smart]
+title : IBS 796
+#production_url : 
+#description: 
+#disqus_shortname: caarlos0blog
+#analytics: UA-32899481-1
+#gauges: 50f2b533613f5d7c8000000c
+author :
+  name : James Taylor
+  github : jxtx
+  twitter : jxtx
+  email: james@jamestaylor.org
