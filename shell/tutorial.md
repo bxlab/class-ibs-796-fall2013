@@ -3,7 +3,7 @@ layout: lesson
 root: ../..
 github_username: bxlab
 bootcamp_slug: class-ibs-796-fall2013
-slug: lessons/shell
+slug: shell
 title: The Unix Shell
 ---
 
@@ -18,7 +18,7 @@ with a keyboard instead of controlling graphical user interfaces
 A *terminal* is a program you run that gives you access to the
 shell. There are many different terminal programs that vary across
 operating systems.
-	 
+     
 There are many reasons to learn about the shell; among the
 most important reasons are that: 
 
@@ -59,7 +59,7 @@ which combines a terminal and ssh client.
 
 Once you have a terminal and ssh client, connect to `rhyolite.bx.mathcs.emory.edu` using you username.
 
-## The Example: Manipulating Experimental Data Files
+## Getting sample data
 
 We will spend most of our time learning about the basics of the shell
 by manipulating some experimental data from a hearing test. To get
@@ -68,14 +68,10 @@ command:
 
     git clone https://github.com/{{page.github_username}}/{{page.bootcamp_slug}}.git
 
-Followed by:
+This command fetches all of the data we will need for this tutorial using `git`
+which we will learn about later.
 
-    cd {{page.slug}}
-
-These 2 commands will grab all of the data needed for this workshop from the
-internet.
-
-## Let's get started
+## Shell Basics
 
 One very basic command is `echo`. This command just prints text to
 the terminal. Try the command:
@@ -164,10 +160,10 @@ with a star.
 This directory contains all of the material for this boot camp. Now
 move to the directory containing the data for the shell tutorial:
 
-    cd shell
+    cd {{page.slug}}
 
 If you enter the `cd` command by itself, you will return to the home
-directory. Try this, and then navigate back to the `shell`
+directory. Try this, and then navigate back to the `{{page.slug}}`
 directory.
 
 ### Arguments
@@ -206,14 +202,14 @@ command:
 This will list the contents of the `{{page.bootcamp_slug}}` directory without
 you having to navigate there. Now enter:
 
-    ls {{page.bootcamp_slug}}/shell
+    ls {{page.bootcamp_slug}}/{{page.slug}}
 
-This prints the contents of `shell`. The `cd` command works in a
+This prints the contents of `{{page.slug}}`. The `cd` command works in a
 similar way. Try entering:
 
-    cd {{page.bootcamp_slug}}/shell
+    cd {{page.bootcamp_slug}}/{{page.slug}}
 
-and you will jump directly to `shell` without having to go through
+and you will jump directly to `{{page.slug}}` without having to go through
 the intermediate directory.
 
 ### Full vs. Relative Paths
@@ -225,27 +221,27 @@ hierarchy. The absolute path tells you where a directory is in that
 hierarchy. Navigate to the home directory. Now, enter the `pwd`
 command and you should see:
 
-    /home/swc
+    /home/username
 
 which is the full name of your home directory. This tells you that you
-are in a directory called `swc`, which sits inside a directory called
+are in a directory called `username`, which sits inside a directory called
 `home` which sits inside the very top directory in the hierarchy. The
 very top of the hierarchy is a directory called `/` which is usually
-referred to as the *root directory*. So, to summarize: `swc` is a
+referred to as the *root directory*. So, to summarize: `username` is a
 directory in `home` which is a directory in `/`.
 
 Now enter the following command:
 
-    cd /home/swc/{{page.bootcamp_slug}}/shell
+    cd /home/username/{{page.bootcamp_slug}}/{{page.slug}}
 
-This jumps to `shell`. Now go back to the home directory. We saw
+This jumps to `{{page.slug}}`. Now go back to the home directory. We saw
 earlier that the command:
 
-    cd {{page.bootcamp_slug}}/shell
+    cd {{page.bootcamp_slug}}/{{page.slug}}
 
-had the same effect - it took us to the `shell` directory. But,
+had the same effect - it took us to the `{{page.slug}}` directory. But,
 instead of specifying the absolute path
-(`/home/swc/{{page.bootcamp_slug}}/shell`), we specified a *relative
+(`/home/username/{{page.bootcamp_slug}}/{{page.slug}}`), we specified a *relative
 path*. In other words, we specified the path relative to our current
 directory. A absolute path always starts with a `/`. A relative path does
 not. You can usually use either a absolute path or a relative path
@@ -262,7 +258,7 @@ familiar in there?
 
 There are some shortcuts which you should know about. Dealing with the
 home directory is very common. So, in the shell the tilde character,
-`~`, is a shortcut for your home directory. Navigate to the `shell`
+`~`, is a shortcut for your home directory. Navigate to the `{{page.slug}}`
 directory, then enter the command:
 
     ls ~
@@ -273,12 +269,12 @@ above your current directory. Thus:
 
     ls ..
 
-prints the contents of the `/home/swc/{{page.bootcamp_slug}}`. You can chain
+prints the contents of the `/home/username/{{page.bootcamp_slug}}`. You can chain
 these together, so:
 
     ls ../../
 
-prints the contents of `/home/swc` which is your home
+prints the contents of `/home/username` which is your home
 directory. Finally, the special directory `.` always refers to your
 current directory. So, `ls`, `ls .`, and `ls ././././.` all do the
 same thing, they print the contents of the current directory. This may
@@ -286,8 +282,10 @@ seem like a useless shortcut right now, but we'll see when it is
 needed in a little while.
 
 To summarize, the commands `ls ~`, `ls ~/.`, `ls ../../`, and `ls
-/home/swc` all do exactly the same thing. These shortcuts are not
+/home/username` all do exactly the same thing. These shortcuts are not
 necessary, they are provided for your convenience.
+
+<div markdown="1" class="panel"><div class="panel-body">
 
 **Our data set: Cochlear Implants**
 
@@ -310,6 +308,8 @@ set of test results were written out to a text file, one set per file.
 Each participant has a unique subject ID, and a made-up subject name.
 Each experiment has a unique experiment ID. The experiment has
 collected 351 files so far.
+
+</div></div>
 
 The data is a bit of a mess! There are inconsistent file names, there
 are extraneous "NOTES" files that we'd like to get rid of, and the
@@ -461,7 +461,7 @@ directory. This tells the shell to run the `hello` program which is
 located right here. So, you can run any program by entering the path
 to that program. You can run `hello` equally well by specifying:
 
-    /home/swc/{{page.bootcamp_slug}}/shell/hello
+    ~/{{page.bootcamp_slug}}/shell/hello
 
 Or by entering:
 
@@ -496,7 +496,7 @@ is where the name comes from, `cat` is short for concatenate).
 
 2.  Without changing directories, (you should still be in `shell`),
     use one short command to print the contents of all of the files in
-    the `/home/swc/{{page.bootcamp_slug}}/shell/data/thomas` directory.
+    the `~/{{page.bootcamp_slug}}/shell/data/thomas` directory.
 
 * * * *
 
@@ -562,7 +562,7 @@ exists.
 Use `>>`, to append the contents of all of the files which contain the
 number 4 in the directory:
 
-    /home/swc/{{page.bootcamp_slug}}/shell/data/gerdal
+    ~/{{page.bootcamp_slug}}/shell/data/gerdal
 
 to the existing `all_data` file. Thus, when you are done `all_data`
 should contain all of the experiment data from Bert and any
