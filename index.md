@@ -10,5 +10,5 @@ Instructors: James Taylor and Tim Read
 
 ### Lessons
 
-[Week 1: The Unix Shell](lessons/thw-shell/tutorial.html)
+[Week 1: The Unix Shell](lessons/shell/tutorial.html)
 

@@ -3,8 +3,8 @@ layout: lesson
 root: ../..
 github_username: bxlab
 bootcamp_slug: class-ibs-796-fall2013
+slug: lessons/shell
 title: The Unix Shell
-dataurl : http://
 ---
 
 
