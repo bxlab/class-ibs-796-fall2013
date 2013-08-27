@@ -10,8 +10,11 @@
 
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bs-sidebar.css" rel="stylesheet">
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="/js/toc.js"></script>
 
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,7 +42,14 @@
 
   <div class="container">
     <div>
-        {{ content }}
+      <div class="row">
+        <div class="col-md-3">
+          <div class="well bs-sidebar hidden-print affix toc" role="complementary"></div>
+        </div>
+        <div class="col-md-9" role="main">
+          {{ content }}
+        </div>
+      </div>
     </div>
   </div>
 

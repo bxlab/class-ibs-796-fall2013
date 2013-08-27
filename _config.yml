@@ -3,7 +3,7 @@ pygments: true
 #permalink: /posts/:title
 rdiscount:
   extensions: [smart]
-title : IBS 796
+title : "IBS 796: Basic Programming for Bioinformatics"
 #production_url : 
 #description: 
 #disqus_shortname: caarlos0blog

@@ -1,31 +1,25 @@
-# The Shell
+---
+layout: lesson
+root: ../..
+github_username: bxlab
+bootcamp_slug: class-ibs-796-fall2013
+title: The Unix Shell
+dataurl : http://
+---
 
-[Back To The Menu](http://github.com/JHU-SWC-2012/SWC-bootcamp/)
-- [Forward to Python Variables](http://github.com/JHU-SWC-2012/SWC-bootcamp/tree/master/2a-PythonVariables/)
 
-* * * * *
-
-**Updated and presented by : Sasha Wood**
-
-**This presentation originally developed by: Milad Fatenejad**
-
-# What is the shell how do I access the shell?
+## What is the shell and how do I access it?
 
 The *shell* is a program that presents a command line interface
 which allows you to control your computer using commands entered
 with a keyboard instead of controlling graphical user interfaces
 (GUIs) with a mouse/keyboard combination.
 
-Use the GUI to open the tutorial on github.  Single click on the "Firefox 
-Web Browser".  Type in the URL:
-    github.com/JHU-SWC-2012/SWC-bootcamp
-Click on the directory named `1-Shell`.
-
 A *terminal* is a program you run that gives you access to the
 shell. There are many different terminal programs that vary across
 operating systems.
 	 
-There are many reasons to learn about the shell. In my opinion, the
+There are many reasons to learn about the shell; among the
 most important reasons are that: 
 
 1.  It is very common to encounter the shell and
@@ -41,30 +35,50 @@ most important reasons are that:
 The shell is just a program and there are many different shell
 programs that have been developed. The most common shell (and the one
 we will use) is called the Bourne-Again SHell (bash). Even if bash is
-not the default shell, it usually installed on most systems and can be
+not the default shell, it is usually installed on most systems and can be
 started by typing `bash` in the terminal. Many commands, especially a
 lot of the basic ones, work across the various shells but many things
 are different. I recommend sticking with bash and learning it well.
+([Here is a link for more information](http://en.wikipedia.org/wiki/Bash_(Unix_shell))
 
-To open a terminal, just single click on the "Terminal" icon on the
-Desktop.
+For this exercise we will use our *terminal* to obtain a *shell* on a remote
+system using *ssh*. 
 
-# The Example: Manipulating Experimental Data Files
+### SSH
+
+Remote logins can be used to connect to distant computers and perform command line tasks on them.
+The secure shell command is ssh, and uses the syntax `ssh username@computer` to connect.
+scp can be used to copy files to/from a remote computer.
+
+### Obtaining a terminal and ssh
+
+If you are running on a Mac OS X or Linux system you will already have a terminal 
+program installed (on Mac OS X this is under Applications/Utilities). For Windows, 
+you should installed [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 
+which combines a terminal and ssh client. 
+
+Once you have a terminal and ssh client, connect to `rhyolite.bx.mathcs.emory.edu` using you username.
+
+## The Example: Manipulating Experimental Data Files
 
 We will spend most of our time learning about the basics of the shell
-by manipulating some experimental data from a hearing tests. To get
+by manipulating some experimental data from a hearing test. To get
 the data for this test, you will need internet access. Just enter the
 command:
 
-    git clone https://github.com/JHU-SWC-2012/SWC-bootcamp.git
+    git clone https://github.com/{{page.github_username}}/{{page.bootcamp_slug}}.git
 
-This will grab all of the data needed for this workshop from the
+Followed by:
+
+    cd {{page.slug}}
+
+These 2 commands will grab all of the data needed for this workshop from the
 internet.
 
-# Let's get started
+## Let's get started
 
-One very basic command is `echo`. This command is just prints text to
-the terminal. Try entering the command:
+One very basic command is `echo`. This command just prints text to
+the terminal. Try the command:
 
     echo Hello, World
 
@@ -73,7 +87,7 @@ to you. The echo command is useful for printing from a shell script,
 for displaying variables, and for generating known values to pass
 to other programs.
 
-## Moving around the file system
+### Moving around the file system
 
 Let's learn how to move around the file system using command line
 programs. This is really easy to do using a GUI (just click on
@@ -89,11 +103,11 @@ can contain other files or directories.
 
 Whenever you start up a terminal, you will start in a special
 directory called the *home* directory. Every user has their own home
-directory where they have full access to do whatever they want. In
-this case, the `pwd` command tells us that we are in the `/home/swc`
-directory. This is the home directory for the `swc` user. That is our
-user name. You can always find out your user name by entering the
-command `whoami`. 
+directory where they have full access to do whatever they want. For
+example, if our user ID is `swc`, the `pwd` command tells us that we
+are in the `/home/swc` directory. This is the home directory for the
+`swc` user. That is our user name. You can always find out your user
+name by entering the command `whoami`.
 
 **File Types**
 
@@ -116,7 +130,8 @@ Some terminals will not color the directory entries in this very
 convenient way. In those terminals, use `ls -F` instead of `ls`. The
 `-F` argument modifies the results so that a slash is placed at the
 end of directories. If the file is *executable* meaning that it can be
-run like a program, then a star fill be placed of the file name.
+run like a program, then a star will be placed at the end of of the
+file name.
 
 You can also use the command `ls -l` to see whether items in a
 directory are files or directories. `ls -l` gives a lot more
@@ -133,14 +148,13 @@ command:
 The `rm` command can be used to remove files. If you enter `ls` again,
 you will see that `testfile` is gone.
 
-
 **Changing Directories**
 
 Now, let's move to a different directory. The command `cd` (change
-directory) is used to move around. Let's move into the `SWC-bootcamp`
-directory. Enter the following command:
+directory) is used to move around. Let's move into the
+`{{page.bootcamp_slug}}` directory. Enter the following command:
 
-    cd SWC-bootcamp
+    cd {{page.bootcamp_slug}}
 
 Now use the `ls` command to see what is inside this directory. You
 will see that there is an entry which is green. This means that this
@@ -150,13 +164,13 @@ with a star.
 This directory contains all of the material for this boot camp. Now
 move to the directory containing the data for the shell tutorial:
 
-    cd 1-Shell
+    cd shell
 
 If you enter the `cd` command by itself, you will return to the home
-directory. Try this, and then navigate back to the `1-Shell`
+directory. Try this, and then navigate back to the `shell`
 directory.
 
-## Arguments
+### Arguments
 
 Most programs take additional arguments that control their exact
 behavior. For example, `-F` and `-l` are arguments to `ls`.  The `ls`
@@ -187,27 +201,27 @@ give `ls` the names of other directories to view. Navigate to the
 home directory if you are not already there. Then enter the
 command:
 
-    ls SWC-bootcamp
+    ls {{page.bootcamp_slug}}
 
-This will list the contents of the `SWC-bootcamp` directory without
+This will list the contents of the `{{page.bootcamp_slug}}` directory without
 you having to navigate there. Now enter:
 
-    ls SWC-bootcamp/1-Shell
+    ls {{page.bootcamp_slug}}/shell
 
-This prints the contents of `1-Shell`. The `cd` command works in a
+This prints the contents of `shell`. The `cd` command works in a
 similar way. Try entering:
 
-    cd SWC-bootcamp/1-Shell
+    cd {{page.bootcamp_slug}}/shell
 
-and you will jump directly to `1-Shell` without having to go through
+and you will jump directly to `shell` without having to go through
 the intermediate directory.
 
-## Full vs. Relative Paths
+### Full vs. Relative Paths
 
 The `cd` command takes an argument which is the directory
 name. Directories can be specified using either a *relative* path a
 full *path*. The directories on the computer are arranged into a
-hierarchy. The full path tells you where a directory is in that
+hierarchy. The absolute path tells you where a directory is in that
 hierarchy. Navigate to the home directory. Now, enter the `pwd`
 command and you should see:
 
@@ -222,19 +236,19 @@ directory in `home` which is a directory in `/`.
 
 Now enter the following command:
 
-    cd /home/swc/SWC-bootcamp/1-Shell
+    cd /home/swc/{{page.bootcamp_slug}}/shell
 
-This jumps to `1-Shell`. Now go back to the home directory. We saw
+This jumps to `shell`. Now go back to the home directory. We saw
 earlier that the command:
 
-    cd SWC-bootcamp/1-Shell
+    cd {{page.bootcamp_slug}}/shell
 
-had the same effect - it took us to the `1-Shell` directory. But,
-instead of specifying the full path
-(`/home/swc/SWC-bootcamp/1-Shell`), we specified a *relative path*. In
-other words, we specified the path relative to our current
-directory. A full path always starts with a `/`. A relative path does
-not. You can usually use either a full path or a relative path
+had the same effect - it took us to the `shell` directory. But,
+instead of specifying the absolute path
+(`/home/swc/{{page.bootcamp_slug}}/shell`), we specified a *relative
+path*. In other words, we specified the path relative to our current
+directory. A absolute path always starts with a `/`. A relative path does
+not. You can usually use either a absolute path or a relative path
 depending on what is most convenient. If we are in the home directory,
 it is more convenient to just enter the relative path since it
 involves less typing.
@@ -242,30 +256,29 @@ involves less typing.
 Now, list the contents of the /bin directory. Do you see anything
 familiar in there?
 
-
-## Saving time with shortcuts, wild cards, and tab completion
+### Saving time with shortcuts, wild cards, and tab completion
 
 **Shortcuts**
 
 There are some shortcuts which you should know about. Dealing with the
 home directory is very common. So, in the shell the tilde character,
-`~`, is a shortcut for your home directory. Navigate to the `1-Shell`
+`~`, is a shortcut for your home directory. Navigate to the `shell`
 directory, then enter the command:
 
     ls ~
 
 This prints the contents of your home directory, without you having to
-type the full path. The shortcut `..` always refers to the directory
+type the absolute path. The shortcut `..` always refers to the directory
 above your current directory. Thus: 
 
     ls ..
 
-prints the contents of the `/home/swc/SWC-bootcamp`. You can chain
+prints the contents of the `/home/swc/{{page.bootcamp_slug}}`. You can chain
 these together, so:
 
     ls ../../
 
-prints the contents of `/home/swsc` which is your home
+prints the contents of `/home/swc` which is your home
 directory. Finally, the special directory `.` always refers to your
 current directory. So, `ls`, `ls .`, and `ls ././././.` all do the
 same thing, they print the contents of the current directory. This may
@@ -315,8 +328,8 @@ onto more advanced shell topics...
 
 **Wild cards**
 
-Navigate to the `~/SWC-bootcamp/Shell-1/data/THOMAS` directory. This
-directory contains our hearing test data for THOMAS. If we type `ls`,
+Navigate to the `shell/data/thomas` directory. This
+directory contains our hearing test data for Thomas. If we type `ls`,
 we will see that there are a bunch of files which are just four digit
 numbers. By default, `ls` lists all of the files in a given
 directory. The `*` character is a shortcut for "everything". Thus, if
@@ -372,7 +385,7 @@ directory name. For example, enter:
     cd S<tab>
 
 The shell will fill in the rest of the directory name for
-`SWC-bootcamp`. Now enter:
+`{{page.bootcamp_slug}}`. Now enter:
 
     ls 3<tab><tab>
 
@@ -386,7 +399,7 @@ enter `e<tab><tab>`. You will see the name of every program that
 starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you
 will see that tab completion works.
 
-** Command History**
+**Command History**
 
 You can easily access previous commands.  Hit the up arrow.  
 Hit it again.  You can step backwards through your command history. 
@@ -397,7 +410,7 @@ The down arrow takes your forwards in the command history.
 ^-R will do a reverse-search through your command history.  This
 is very useful.
 
-## Which program? ##
+### Which program? ##
 
 Commands like `ls`, `rm`, `echo`, and `cd` are just ordinary programs
 on the computer. A program is just a file that you can *execute*. The
@@ -431,15 +444,15 @@ shell looks for programs to run. If your program is not in this list,
 then an error is printed. The shell ONLY checks in the places listed
 in the `PATH` environment variable. 
 
-Navigate to the `1-Shell` directory and list the contents. You will
+Navigate to the `shell` directory and list the contents. You will
 notice that there is a program (executable file) called `hello` in
 this directory. Now, try to run the program by entering:
 
     hello
 
 You should get an error saying that hello cannot be found. That is
-because the directory `/home/swc/SWC-bootcamp/1-Shell` is not in the
-`PATH`. You can run the `hello` program by entering:
+because this directory is not in the `PATH`. You can run the `hello`
+program by entering:
 
     ./hello
 
@@ -448,17 +461,16 @@ directory. This tells the shell to run the `hello` program which is
 located right here. So, you can run any program by entering the path
 to that program. You can run `hello` equally well by specifying:
 
-    /home/swc/SWC-bootcamp/1-Shell/hello
+    /home/swc/{{page.bootcamp_slug}}/shell/hello
 
 Or by entering:
 
-    ../1-Shell/hello
+    ../shell/hello
 
 When there are no `/` characters, the shell assumes you want to look
 in one of the default places for the program.
 
-
-## Examining Files
+### Examining Files
 
 We now know how to switch directories, run programs, and look at the
 contents of directories, but how do we look at the contents of files?
@@ -466,25 +478,25 @@ contents of directories, but how do we look at the contents of files?
 The easiest way to examine a file is to just print out all of the
 contents using the program `cat`. Enter the following command:
 
-    cat ex_data.txt
+    cat appaloosa.txt
 
-This prints out the contents of the `ex_data.txt` file. If you enter:
+This prints out the contents of the `appaloosa.txt` file. If you enter:
 
-    cat ex_data.txt ex_data.txt
+    cat appaloosa.txt appaloosa.txt
 
-It will print out the contents of `ex_data.txt` twice. `cat` just
+It will print out the contents of `appaloosa.txt` twice. `cat` just
 takes a list of file names and writes them out one after another (this
 is where the name comes from, `cat` is short for concatenate). 
 
 * * * *
 **Short Exercises**
 
-1.  Print out the contents of the `~/SWC-bootcamp/1-Shell/dictionary.txt`
+1.  Print out the contents of the `shell/dictionary.txt`
     file. What does this file contain?
 
-2.  Without changing directories, (you should still be in `1-Shell`),
+2.  Without changing directories, (you should still be in `shell`),
     use one short command to print the contents of all of the files in
-    the /home/swc/SWC-bootcamp/1-Shell/data/THOMAS directory.
+    the `/home/swc/{{page.bootcamp_slug}}/shell/data/thomas` directory.
 
 * * * *
 
@@ -492,7 +504,7 @@ is where the name comes from, `cat` is short for concatenate).
 be annoying to use. The program, `less`, is useful for this
 case. Enter the following command:
 
-    less ~/SWC-bootcamp/1-Shell/dictionary.txt
+    less shell/dictionary.txt
 
 `less` opens the file, and lets you navigate through it. The commands
 are identical to the `man` program. Use "space" to go forward and hit
@@ -520,13 +532,12 @@ in reverse while using `less`.
 
 * * * * 
 
-
-## Redirection
+### Redirection
 
 Let's turn to the experimental data from the hearing tests that we
-began with. This data is located in the `~/SWC-bootcamp/1-Shell/data`
+began with. This data is located in the `shell/data`
 directory. Each subdirectory corresponds to a particular participant
-in the study. Navigate to the `Bert` subdirectory in `data`.  There
+in the study. Navigate to the `bert` subdirectory in `data`.  There
 are a bunch of text files which contain experimental data
 results. Lets print them all:
 
@@ -551,7 +562,7 @@ exists.
 Use `>>`, to append the contents of all of the files which contain the
 number 4 in the directory:
 
-    /home/swc/SWC-bootcamp/1-Shell/data/gerdal
+    /home/swc/{{page.bootcamp_slug}}/shell/data/gerdal
 
 to the existing `all_data` file. Thus, when you are done `all_data`
 should contain all of the experiment data from Bert and any
@@ -559,12 +570,12 @@ experimental data file from gerdal that contains the number 4.
 
 * * * *
 
-
-## Creating, moving, copying, and removing
+### Creating, moving, copying, and removing
 
 We've created a file called `all_data` using the redirection operator
-`>`. This is critical file so we have to make copies so that the data
-is backed up. Lets copy the file using the `cp` command. The `cp`
+`>`. This file is critical - it's our analysis results - so we want to
+make copies so that the data is backed up.
+Lets copy the file using the `cp` command. The `cp`
 command backs up the file. Navigate to the `data` directory and enter:
 
     cp all_data all_data_backup
@@ -608,14 +619,13 @@ delete a directory using the `-r` option. Enter the following command:
 
     rm -r foo
 
-
-## Count the words
+### Count the words
 
 The `wc` program (word count) counts the number of lines, words, and
 characters in one or more files. Make sure you are in the `data`
 directory, then enter the following command:
 
-    wc Bert/* gerdal/*4*
+    wc bert/* gerdal/*4*
 
 For each of the files indicated, `wc` has printed a line with three
 numbers. The first is the number of lines in that file. The second is
@@ -623,7 +633,7 @@ the number of words. Finally, the total number of characters is
 indicated. The final line contains this information summed over all of
 the files. Thus, there were 10445 characters in total. 
 
-Remember that the `Bert/*` and `gerdal/*4*` files were merged
+Remember that the `bert/*` and `gerdal/*4*` files were merged
 into the `all_data` file. So, we should see that `all_data` contains
 the same number of characters:
 
@@ -645,10 +655,10 @@ Figure out how to get `wc` to print the length of the longest line in
 
 * * * *
 
-## The awesome power of the Pipe
+### The awesome power of the Pipe
 
 Suppose I wanted to only see the total number of character, words, and
-lines across the files `Bert/*` and `gerdal/*4*`. I don't want to
+lines across the files `bert/*` and `gerdal/*4*`. I don't want to
 see the individual counts, just the total. Of course, I could just do:
 
     wc all_data
@@ -673,12 +683,12 @@ file use:
 
 Let's turn back to the problem of printing only the total number of
 lines in a set of files without creating any temporary files. To do
-this, we want to tell the shell to take the output of the `wc Bert/*
+this, we want to tell the shell to take the output of the `wc bert/*
 gerdal/*4*` and send it into the `tail -n 1` command. The `|`
 character (called pipe) is used for this purpose. Enter the following
 command:
 
-    wc Bert/* gerdal/Data0559 | tail -n 1
+    wc bert/* gerdal/Data0559 | tail -n 1
 
 This will print only the total number of lines, characters, and words
 across all of these files. What is happening here? Well, `tail`, like
@@ -697,7 +707,7 @@ data to come in. Now type:
     are
     good
 
-then CONTROL+d. You should is the lines:
+then CONTROL+d. You should see the lines:
 
     are
     good
@@ -714,7 +724,6 @@ them together, you can do some really powerful things really
 efficiently. If you want to be proficient at using the shell, you must
 learn to become proficient with the pipe and redirection operators:
 `|`, `>`, `>>`.
-
 
 **A sorting example**
 
@@ -747,18 +756,17 @@ Notice that the names are now printed in alphabetical order.
 **Short Exercise**
 
 Use the `echo` command and the append operator, `>>`, to append your
-name to the file, then sort it.
+name to the file, then sort it and make a new file called Sorted.
 
 * * * *
 
-Let's navigate back to `~/SWC-bootcamp/1-Shell/data`. You should still
-have the `all_data` file hanging around here. Enter the following command:
+Let's navigate back to `shell/data`. Enter the following command:
 
-    wc Bert/* | sort -k 3 -n
+    wc bert/* | sort -k 3 -n
 
 We are already familiar with what the first of these two commands
 does: it creates a list containing the number of characters, words,
-and lines in each file in the `Bert` directory. This list is then
+and lines in each file in the `bert` directory. This list is then
 piped into the `sort` command, so that it can be sorted. Notice there
 are two options given to sort:
 
@@ -783,10 +791,9 @@ Combine the `wc`, `sort`, `head` and `tail` commands so that only the
 
 Hint: To print the smallest file, use:
 
-    wc Bert/* | sort -k 3 -n | head -n 1
+    wc bert/* | sort -k 3 -n | head -n 1
 
-* * * * 
-
+***Short Exercise***
 Printing the smallest file seems pretty useful. We don't want to type
 out that long command often. Let's create a simple script, a simple
 program, to run this command. The program will look at all of the
@@ -801,10 +808,13 @@ Then enter the following text:
     #!/bin/bash
     wc * | sort -k 3 -n | head -n 1
 
-Now, `cd` into the `Bert` directory and enter the command
+Now, `cd` into the `bert` directory and enter the command
 `../smallest`. Notice that it says permission denied. This happens
 because we haven't told the shell that this is an executable
-file. Enter the following commands:
+file. If you do `ls -l ../smallest`, it will show you the permissions on 
+the left of the listing.
+
+Enter the following commands:
 
     chmod a+x ../smallest
     ../smallest
@@ -814,19 +824,19 @@ particular command modifies the file `../smallest` by giving all users
 (notice the `a`) permission to execute (notice the `x`) the file. If
 you enter:
 
-    ls ../smallest
+    ls -l ../smallest
 
-You will see that the file name is green. Congratulations, you just
-created your first shell script!
+You will see that the file name is green and the permissions have changed. 
+Congratulations, you just created your first shell script!
 
-# Searching files
+## Searching files
 
 You can search the contents of a file using the command `grep`. The
 `grep` program is very powerful and useful especially when combined
-with other commands by using the pipe. Navigate to the `Bert`
+with other commands by using the pipe. Navigate to the `bert`
 directory. Every data file in this directory has a line which says
 "Range". The range represents the smallest frequency range that can be
-discriminated. Lets list all of the ranges from the tests that Bert
+discriminated. Lets list all of the ranges from the tests that bert
 conducted:
 
     grep Range *
@@ -841,8 +851,7 @@ file containing the file with the smallest Range. Use the commands
 
 * * * * 
 
-
-# Finding files
+## Finding files
 
 The `find` program can be used to find files based on arbitrary
 criteria. Navigate to the `data` directory and enter the following
@@ -884,9 +893,9 @@ a single instance of `grep` (or whatever program it is running).
 * * * * 
 **Short Exercise**
 
-Navigate to the `data` directory. Use one find command to perform each
+Navigate to the `data` directory. Use one `find` command to perform each
 of the operations listed below (except number 2, which does not
-require a find command):
+require a `find` command):
 
 1.  Find any file whose name is "NOTES" within `data` and delete it 
 
@@ -900,7 +909,7 @@ require a find command):
 Hint: If you make a mistake and need to start over just do the
 following:
 
-1.  Navigate to the `1-Shell` directory
+1.  Navigate to the `shell` directory
 
 2.  Delete the `data` directory
 
@@ -915,9 +924,7 @@ search for files which do not match a certain name.
 
 * * * * 
 
-
-
-## Bonus:
+### Bonus:
 
 **backtick, xargs**: Example find all files with certain text
 
@@ -933,8 +940,12 @@ search for files which do not match a certain name.
 
 **ssh and scp**
 
-**Regular Expressions**
+**regular expressions**
 
-**Permissions**
+**permissions**
 
-**Chaining commands together**
+**chaining commands together**
+
+*****
+
+**Based on material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
