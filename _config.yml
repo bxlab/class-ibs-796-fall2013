@@ -1,9 +1,9 @@
 #markdown: rdiscount
 pygments: true
-#permalink: /posts/:title
 rdiscount:
   extensions: [smart]
 title : "IBS 796: Basic Programming for Bioinformatics"
+baseurl: http://bxlab.github.io/class-ibs-796-fall2013/
 #production_url : 
 #description: 
 #disqus_shortname: caarlos0blog
