@@ -922,29 +922,18 @@ Redo exercise 4, except rename only the files which do not already end
 in `.txt`. You will have to use the `man` command to figure out how to
 search for files which do not match a certain name. 
 
+
 * * * * 
 
-### Bonus:
+### Potential additions:
 
-**backtick, xargs**: Example find all files with certain text
-
-**alias** -> rm -i
-
-**variables** -> use a path example
+**environment variables**
 
 **.bashrc**
 
-**du**
+**shell control constructs**
 
-**ln**
-
-**ssh and scp**
-
-**regular expressions**
-
-**permissions**
-
-**chaining commands together**
+**job control**
 
 *****
 
