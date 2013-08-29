@@ -66,10 +66,12 @@ by manipulating some experimental data from a hearing test. To get
 the data for this test, you will need internet access. Just enter the
 command:
 
-    git clone https://github.com/{{page.github_username}}/{{page.bootcamp_slug}}.git
+    wget https://github.com/{{page.github_username}}/raw/gh-pages/{{page.bootcamp_slug}}/data.tgz
+    tar -xzvf data.tgz
 
-This command fetches all of the data we will need for this tutorial using `git`
-which we will learn about later.
+
+The first command fetches all of the data we will need for this tutorial using `wget` (a command line tool
+which fetches files by URL), the second command uncompresses the data, creating a directory called `shell`. 
 
 ## Shell Basics
 
