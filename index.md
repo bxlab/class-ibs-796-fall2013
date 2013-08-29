@@ -21,7 +21,7 @@ Meeting Time
 
 ### Lesson plan
 
-[Week 1: The Unix Shell](shell/tutorial.html)
+Week 1: The Unix Shell; [Preliminaries](setup/index.html), [Part 1](shell/tutorial.html)
 
 Week 2: Version control with Git and Github; [Part 1](git/local.html) and [Part 2](git/remote.html)
 

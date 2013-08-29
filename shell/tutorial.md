@@ -66,7 +66,7 @@ by manipulating some experimental data from a hearing test. To get
 the data for this test, you will need internet access. Just enter the
 command:
 
-    wget https://github.com/{{page.github_username}}/raw/gh-pages/{{page.bootcamp_slug}}/data.tgz
+    wget https://github.com/{{page.github_username}}/{{page.bootcamp_slug}}/raw/gh-pages/{{page.slug}}/data.tgz
     tar -xzvf data.tgz
 
 
@@ -150,19 +150,16 @@ you will see that `testfile` is gone.
 
 Now, let's move to a different directory. The command `cd` (change
 directory) is used to move around. Let's move into the
-`{{page.bootcamp_slug}}` directory. Enter the following command:
+`{{page.slug}}` directory. Enter the following command:
 
-    cd {{page.bootcamp_slug}}
+    cd {{page.slug}}
 
 Now use the `ls` command to see what is inside this directory. You
 will see that there is an entry which is green. This means that this
 is an executable. If you use `ls -F` you will see that this file ends
 with a star.
 
-This directory contains all of the material for this boot camp. Now
-move to the directory containing the data for the shell tutorial:
-
-    cd {{page.slug}}
+This directory contains all of the material for this lesson.
 
 If you enter the `cd` command by itself, you will return to the home
 directory. Try this, and then navigate back to the `{{page.slug}}`
@@ -199,19 +196,19 @@ give `ls` the names of other directories to view. Navigate to the
 home directory if you are not already there. Then enter the
 command:
 
-    ls {{page.bootcamp_slug}}
+    ls {{page.slug}}
 
-This will list the contents of the `{{page.bootcamp_slug}}` directory without
+This will list the contents of the `{{page.slug}}` directory without
 you having to navigate there. Now enter:
 
-    ls {{page.bootcamp_slug}}/{{page.slug}}
+    ls {{page.slug}}/data
 
-This prints the contents of `{{page.slug}}`. The `cd` command works in a
+This prints the contents of `data`. The `cd` command works in a
 similar way. Try entering:
 
-    cd {{page.bootcamp_slug}}/{{page.slug}}
+    cd {{page.slug}}/data
 
-and you will jump directly to `{{page.slug}}` without having to go through
+and you will jump directly to `data` without having to go through
 the intermediate directory.
 
 ### Full vs. Relative Paths
@@ -234,16 +231,16 @@ directory in `home` which is a directory in `/`.
 
 Now enter the following command:
 
-    cd /home/username/{{page.bootcamp_slug}}/{{page.slug}}
+    cd /home/username/{{page.slug}}
 
 This jumps to `{{page.slug}}`. Now go back to the home directory. We saw
 earlier that the command:
 
-    cd {{page.bootcamp_slug}}/{{page.slug}}
+    cd {{page.slug}}
 
 had the same effect - it took us to the `{{page.slug}}` directory. But,
 instead of specifying the absolute path
-(`/home/username/{{page.bootcamp_slug}}/{{page.slug}}`), we specified a *relative
+(`/home/username/{{page.slug}}`), we specified a *relative
 path*. In other words, we specified the path relative to our current
 directory. A absolute path always starts with a `/`. A relative path does
 not. You can usually use either a absolute path or a relative path
@@ -260,7 +257,7 @@ familiar in there?
 
 There are some shortcuts which you should know about. Dealing with the
 home directory is very common. So, in the shell the tilde character,
-`~`, is a shortcut for your home directory. Navigate to the `{{page.slug}}`
+`~`, is a shortcut for your home directory. Navigate to the `{{page.slug}}/data`
 directory, then enter the command:
 
     ls ~
@@ -271,7 +268,7 @@ above your current directory. Thus:
 
     ls ..
 
-prints the contents of the `/home/username/{{page.bootcamp_slug}}`. You can chain
+prints the contents of the `/home/username/{{page.slug}}`. You can chain
 these together, so:
 
     ls ../../
@@ -384,10 +381,10 @@ lot of time. When you start typing out the name of a directory, then
 hit the tab key, the shell will try to fill in the rest of the
 directory name. For example, enter:
 
-    cd S<tab>
+    cd s<tab>
 
 The shell will fill in the rest of the directory name for
-`{{page.bootcamp_slug}}`. Now enter:
+`{{page.slug}}`. Now enter:
 
     ls 3<tab><tab>
 
@@ -463,7 +460,7 @@ directory. This tells the shell to run the `hello` program which is
 located right here. So, you can run any program by entering the path
 to that program. You can run `hello` equally well by specifying:
 
-    ~/{{page.bootcamp_slug}}/shell/hello
+    ~/shell/hello
 
 Or by entering:
 
@@ -498,7 +495,7 @@ is where the name comes from, `cat` is short for concatenate).
 
 2.  Without changing directories, (you should still be in `shell`),
     use one short command to print the contents of all of the files in
-    the `~/{{page.bootcamp_slug}}/shell/data/thomas` directory.
+    the `~/shell/data/thomas` directory.
 
 * * * *
 
@@ -564,7 +561,7 @@ exists.
 Use `>>`, to append the contents of all of the files which contain the
 number 4 in the directory:
 
-    ~/{{page.bootcamp_slug}}/shell/data/gerdal
+    ~/shell/data/gerdal
 
 to the existing `all_data` file. Thus, when you are done `all_data`
 should contain all of the experiment data from Bert and any
@@ -924,18 +921,39 @@ Redo exercise 4, except rename only the files which do not already end
 in `.txt`. You will have to use the `man` command to figure out how to
 search for files which do not match a certain name. 
 
+## Setting up your default environment
 
-* * * * 
+Previously we saw the `PATH` environment variable which determines where the
+shell searches for executable files. There are many other environment variables, 
+you can view your current environment with the `env` command:
 
-### Potential additions:
+    env
 
-**environment variables**
+You may want to modify environment variables in certain circumstances. For example,
+if you create a directory `~/bin` which contains executables you have created, you
+can add it to the search path using the shell builtin `export`:
 
-**.bashrc**
+    export PATH=~/bin:$PATH
 
-**shell control constructs**
+The file `.bashrc` is run every time you open a new login shell. Thus adding that
+line to the file `.bashrc` in your home directory will make `~/bin` part of your
+path every time you login.
 
-**job control**
+### Conditionals
+
+The shell has a complete set of control constructs (loops, conditionals, etc), we
+will learn more about these later, but one useful tool is if. For example, to add 
+the ~/bin directory only if it exists, we can use:
+
+    if [ -d ~/bin ]; then
+        export PATH=~/bin:$PATH
+    fi
+
+`[`, also called `test` is just another command. In this case we are testing if a 
+directory exists. `man test` will let you learn about all the possible tests.
+
+A complex example of setting up various search paths the James Taylor uses for
+compatibility with a variety of different operating systems can be viewed [here](https://bitbucket.org/james_taylor/dotfiles/src/80d275edb90cf37f263d2f03d9d1bc6efc914136/setup_paths.sh?at=default).
 
 *****
 
