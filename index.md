@@ -23,7 +23,7 @@ Meeting Time
 
 [Week 1: The Unix Shell](shell/tutorial.html)
 
-Week 2: Version control with Git and Github
+Week 2: Version control with Git and Github; [Part 1](git/local.html) and [Part 2](git/remote.html)
 
 Week 3: Python basics
 

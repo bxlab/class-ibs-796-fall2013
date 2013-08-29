@@ -1,6 +1,6 @@
 ---
 layout: lesson
-root: ../..
+root: ..
 title: "Version Control With Git: Local Operations"
 ---
 ## Example: A Slide Deck for a Presentation
