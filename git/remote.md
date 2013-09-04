@@ -2,6 +2,9 @@
 layout: lesson
 root: ..
 title: "Version Control With Git: Using Remote Repositories"
+repo_owner: bxlab
+repo_slug: class-ibs-796-fall2013-playground
+branch: learning
 ---
 ## github.com?
 
@@ -52,23 +55,23 @@ GitHub doesn't know about it yet. You'll need to tell github you want to
 have an official fork of this repository.
 
 Step 1 : Go to our
-[repository](https://github.com/USERNAME/boot-camps/tree/YYYY-MM-PLACE)
+[repository](https://github.com/{{page.repo_owner}}/{{page.repo_slug}}.git)
 from your browser, and click on the Fork button. Choose to fork it to your
 username rather than any organizations.
 
 Step 2 : Clone it. From your terminal :
 
-    $ git clone https://github.com/YOU/boot-camps.git
+    $ git clone https://github.com/YOU/{{page.repo_slug}}.git
     $ cd boot-camps
 
 Step 3 : 
 
-    $ git remote add upstream https://github.com/USERNAME/boot-camps.git
+    $ git remote add upstream https://github.com/{{page.repo_owner}}/{{page.repo_slug}}.git
     $ git remote -v
-    origin  https://github.com/YOU/boot-camps.git (fetch)
-    origin  https://github.com/YOU/boot-camps.git (push)
-    upstream        https://github.com/USERNAME/boot-camps.git (fetch)
-    upstream        https://github.com/USERNAME/boot-camps.git (push)
+    origin  https://github.com/YOU/{{page.repo_slug}}.git (fetch)
+    origin  https://github.com/YOU/{{page.repo_slug}}.git (push)
+    upstream        https://github.com/{{page.repo_owner}}/{{page.repo_slug}}.git (fetch)
+    upstream        https://github.com/{{page.repo_owner}}/{{page.repo_slug}}.git (push)
 
 All repositories that are clones begin with a remote called origin.
 
@@ -100,11 +103,11 @@ Step 1 : Fetch the recent remote repository history
 
     $ git fetch upstream
 
-Step 2 : Make certain you are in the YYYY-MM-PLACE branch and merge the
-upstream YYYY-MM-PLACE branch into your YYYY-MM-PLACE branch
+Step 2 : Make certain you are in the {{page.branch}} branch and merge the
+upstream {{page.branch}} branch into your {{page.branch}} branch
 
-    $ git checkout YYYY-MM-PLACE
-    $ git merge upstream/YYYY-MM-PLACE
+    $ git checkout {{page.branch}}
+    $ git merge upstream/{{page.branch}}
 
 Step 3 : Check out what happened by browsing the directory.
 
@@ -137,14 +140,14 @@ We'll talk about conflicts later, but first, since we have no conflicts
 and are up to date, we can make a minor change and send our changes to
 your fork, the "origin."
 
-    $ git push origin YYYY-MM-PLACE
+    $ git push origin {{page.branch}}
 
 If you have permission to push to the upstream repository, sending
 commits to that remote is exactly analagous.
 
-    $ git push upstream YYYY-MM-PLACE
+    $ git push upstream {{page.branch}}
 
-In the case of the YYYY-MM-PLACE code, new developer accounts will not allow
+In the case of the {{page.branch}} code, new developer accounts will not allow
 this push to succeed. You're welcome to try it though.
 
 ## git merge : Conflicts
@@ -152,26 +155,26 @@ this push to succeed. You're welcome to try it though.
 This is the trickiest part of version control, so let's take it very
 carefully.
 
-In the YYYY-MM-PLACE code, you'll find a file called Readme.md. This is a
+In the {{page.branch}} code, you'll find a file called Readme.md. This is a
 standard documentation file that appears rendered on the landing page
 for the repository in github. To see the rendered version, visit your
-fork on github, (https://github.com/YOU/boot-camps/tree/YYYY-MM-PLACE/README.md).
+fork on github, (https://github.com/YOU/{{page.repo_slug}}/tree/{{page.branch}}/README.md).
 
 For illustration, let's imagine that, suddenly, each of the developers
-on the YYYY-MM-PLACE code would like to welcome visitors in a language other
+on the {{page.branch}} code would like to welcome visitors in a language other
 than English. Since we're all from so many different places and speak
 so many languages, there will certainly be disagreements about what to
 say instead of "Welcome."
 
-I, for example, am from Tamil Nadu, India, so I'll push (to the upstream
-repository) my own version of Welcome on line 5 of Readme.md.
+Suppose I am from Tamil Nadu, India, so I'll push (to the upstream
+repository) my own version of Welcome on line 1 of Readme.md.
 
 You may speak another language, perhaps even English, however, and may want
 to replace the Tamil word 'vanakkam' with an equivalent word that you
 prefer (welcome, willkommen, bienvenido, benvenuti, etc.).
 
 You'll want to start a new branch for development. It's a good convention
-to think of your master branch (in this case your YYYY-MM-PLACE branch) as
+to think of your master branch (in this case your {{page.branch}} branch) as
 the "production branch," typically by keeping that branch clean of your
 local edits until they are ready for release. Developers typically use the
 master branch of their local fork to track other developers changes in the
@@ -186,21 +189,23 @@ commit your changes.
     $ git branch development
     $ git checkout development
     Switched to branch 'development'
-    $ kate Readme.md &
-    <edit the readme file and exit kate>
+    $ nano Readme.md
+    <edit the readme file and exit nano>
     $ git commit -am "Changed the welcome message to ... "
 
 Step 2 : Mirror the remote upstream repository in your master branch (in
-this case your YYYY-MM-PLACE branch) by pulling down my changes
+this case your {{branch}} branch) by pulling down my changes
 
-    $ git checkout YYYY-MM-PLACE
-    Switched to branch 'YYYY-MM-PLACE'
-    $ git fetch upstream
-    $ git merge upstream/YYYY-MM-PLACE
+    $ git checkout {{branch}}
+    Switched to branch '{{branch}}'
+    $ git pull git@github.com:jxtx/class-ibs-796-fall2013-playground.git 
     Updating 43844ea..3b36a87
     Fast-forward
      README.rst |   2 +-
      1 files changed, 1 insertions(+), 1 deletions(-)
+
+Note that in this case you have pulled changes directly from my repository
+by URL without adding it as a remote. 
 
 Step 3 : You want to push it to the internet eventually, so you pull
 updates from the upstream repository, but will experience a conflict.
@@ -217,7 +222,7 @@ Now what?
 Git has paused the merge. You can see this with the **git status**
 command.
 
-    # On branch YYYY-MM-PLACE
+    # On branch {{page.branch}}
     # Unmerged paths:
     #   (use "git add/rm <file>..." as appropriate to mark resolution)
     #
@@ -260,22 +265,10 @@ alterations,
     # .git/MERGE_HEAD
     # and try again.
     #
-    $ git push origin YYYY-MM-PLACE
+    $ git push origin {{page.branch}}
     Counting objects: 10, done.
     Delta compression using up to 2 threads.
     Compressing objects: 100% (6/6), done.
     Writing objects: 100% (6/6), 762 bytes, done.
     Total 6 (delta 2), reused 0 (delta 0)
-    To git@github.com:username/boot-camps.git
-
-## gitolite
-
-[Gitolite](https://github.com/sitaramc/gitolite) is a way for you to host
-your own multi-user git repositories. I'm not going to go into details
-here, but all you need is a machine with some drive space and network
-access. You can install
-[minimal ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD),
-then `sudo apt-get install gitolite` will pull in everything you
-need. At that point, your collaborators will only need to send you
-their public SSH keys for you to configure pull and push access to the
-repos.
+    To git@github.com:{{page.repo_owner}}/{{page.repo_slug}}.git

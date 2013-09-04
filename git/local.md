@@ -85,6 +85,10 @@ as their descriptions.
 
 ## git config : Controls the behavior of git
 
+Many variables can be configured, you will at least want to set your username
+and email before using any other git commands because this information will
+be attached to all your commits. 
+
      $ git config --global user.name "YOUR NAME"
      $ git config --global user.email "YOUR EMAIL"
      
@@ -127,10 +131,10 @@ description. You can describe your repository by opening the description
 file and replacing the text with a name for the repository. Mine will be
 called "Reproducible Science". You may call yours anything you like.
 
-    $ kate description &
+    $ nano description
 
 Step 4 : Applications sometimes create files that are not needed. For
-example, kate creates a temporary file called 'filename~' when you edit
+example, some editors creates a temporary file called 'filename~' when you edit
 the file 'filename'. You can ask git to ignore such files by editing
 the file '.git/info/exclude'. Edit the file to ignore files the end with '~'.
 
@@ -151,7 +155,7 @@ create one, then we'll learn the **git add** command.
 
 Step 1 : Create a file to add to your repository.
 
-    $ kate readme.rst &
+    $ nano readme.rst
 
 Step 2 : Inform git that you would like to keep track of future changes
 in this file.
@@ -206,7 +210,7 @@ they are the smallest change that remain meaningful.
 A good commit message usually contains a one-line description
 followed by a longer explanation if necessary.
 
-[Our repo](https://github.com/USERNAME/boot-camps/commits/YYYY-MM-PLACE)
+[Our repo](https://github.com/bxlab/class-ibs-796-fall2013)
 has some good commit messages.
 
 ### Exercise : Commit Your Changes
