@@ -955,6 +955,10 @@ directory exists. `man test` will let you learn about all the possible tests.
 A complex example of setting up various search paths the James Taylor uses for
 compatibility with a variety of different operating systems can be viewed [here](https://bitbucket.org/james_taylor/dotfiles/src/80d275edb90cf37f263d2f03d9d1bc6efc914136/setup_paths.sh?at=default).
 
+## Having fun?
+
+To learn more about working with the bash shell, see the [Advanced Bash-Scripting Guide](http://tldp.org/LDP/abs/html/index.html).
+
 *****
 
 **Based on material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
