@@ -11,7 +11,7 @@ This is an applied course in computation for Bioinformatics. We will cover the U
 ### General Information
 
 Instructors
-: James Taylor and Tim Read
+: James Taylor (james.taylor at emory.edu) and Tim Read (tread at emory.edu)
 
 Meeting Location
 : 1133 O. Wayne Rollins Building
@@ -21,7 +21,7 @@ Meeting Time
 
 ### Lesson plan
 
-Week 1: The Unix Shell; [Preliminaries](setup/index.html), [Part 1](shell/tutorial.html)
+Week 1: The Unix Shell; [Preliminaries](setup/index.html), [Hey, I want to do this on my Mac](setup/mac.html), [Part 1](shell/tutorial.html)
 
 Week 2: Version control with Git and Github; [Part 1](git/local.html) and [Part 2](git/remote.html)
 
