@@ -908,12 +908,12 @@ require a `find` command):
 Hint: If you make a mistake and need to start over just do the
 following:
 
-1.  Navigate to the `shell` directory
+1.  Navigate to the your home directory
 
-2.  Delete the `data` directory
+2.  Delete the shell directory
 
 3.  Enter the command: `tar -xzvf data.tgz` You should see that the
-    data directory has reappeared in its original state
+    shell/data directory has reappeared in its original state
 
 **BONUS**
 
