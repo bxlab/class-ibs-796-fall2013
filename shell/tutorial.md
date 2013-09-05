@@ -912,7 +912,7 @@ following:
 
 2.  Delete the `data` directory
 
-3.  Enter the command: `git checkout -- data` You should see that the
+3.  Enter the command: `tar -xzvf data.tgz` You should see that the
     data directory has reappeared in its original state
 
 **BONUS**
