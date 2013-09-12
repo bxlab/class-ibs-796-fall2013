@@ -106,6 +106,7 @@ Step 1 : Fetch the recent remote repository history
 Step 2 : Make certain you are in the {{page.branch}} branch and merge the
 upstream {{page.branch}} branch into your {{page.branch}} branch
 
+    $ git branch {{page.branch}}
     $ git checkout {{page.branch}}
     $ git merge upstream/{{page.branch}}
 
@@ -198,7 +199,7 @@ this case your {{branch}} branch) by pulling down my changes
 
     $ git checkout {{branch}}
     Switched to branch '{{branch}}'
-    $ git pull git@github.com:jxtx/class-ibs-796-fall2013-playground.git 
+    $ git pull https://github.com/bxlab/class-ibs-796-fall2013.git
     Updating 43844ea..3b36a87
     Fast-forward
      README.rst |   2 +-
