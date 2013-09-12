@@ -62,7 +62,7 @@ username rather than any organizations.
 Step 2 : Clone it. From your terminal :
 
     $ git clone https://github.com/YOU/{{page.repo_slug}}.git
-    $ cd boot-camps
+    $ cd {{page.repo_slug}}
 
 Step 3 : 
 
