@@ -25,20 +25,18 @@ Week 1: The Unix Shell; [Preliminaries](setup/index.html), [Hey, I want to do th
 
 Week 2: Version control with Git and Github; [Part 1](git/local.html) and [Part 2](git/remote.html)
 
-Week 3: Python basics
+Week 3: [Python basics](python/vars-types/tutorial.html), Data structures in Python
 
-Week 4: Data structures in Python
+Week 4: Object oriented programming and program design
 
-Week 5: Object oriented programming and program design
+Week 5: The Python standard library, and PyPI
 
-Week 6: The Python standard library, and PyPI
+Week 6: Databases and SQLite
 
-Week 7: Databases and SQLite
+Week 7: Numerical programming with Numpy
 
-Week 8: Numerical programming with Numpy
+Week 8: SciPy, Scikits, and Pandas
 
-Week 9: SciPy, Scikits, and Pandas
-
-Week 10: BioPython
+Week 9: BioPython
 
 ...
