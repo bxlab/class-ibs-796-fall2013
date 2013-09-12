@@ -199,7 +199,7 @@ this case your {{branch}} branch) by pulling down my changes
 
     $ git checkout {{branch}}
     Switched to branch '{{branch}}'
-    $ git pull https://github.com/bxlab/class-ibs-796-fall2013.git
+    $ git pull https://github.com/jxtx/class-ibs-796-fall2013-playground.git
     Updating 43844ea..3b36a87
     Fast-forward
      README.rst |   2 +-
