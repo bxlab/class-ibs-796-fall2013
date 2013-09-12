@@ -1,7 +1,7 @@
-markdown: rdiscount
+markdown: redcarpet
 pygments: true
-rdiscount:
-  extensions: [smart]
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 title : "IBS 796: Basic Programming for Bioinformatics"
 baseurl: http://bxlab.github.io/class-ibs-796-fall2013/
 #production_url : 

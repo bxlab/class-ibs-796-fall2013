@@ -67,6 +67,7 @@ Create the file `hello.py` by running the following, or using an editor
 
 ```
 swc@swc:~$ echo 'print "hello world"' > hello.py
+```
 
 Now the print command above is located
 in the file hello.py. We can run this file through the Python

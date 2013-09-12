@@ -25,7 +25,7 @@ Week 1: The Unix Shell; [Preliminaries](setup/index.html), [Hey, I want to do th
 
 Week 2: Version control with Git and Github; [Part 1](git/local.html) and [Part 2](git/remote.html)
 
-Week 3: NOT READY [Python basics](python/vars-types/tutorial.html), Data structures in Python
+Week 3: [Python basics](python/vars-types/tutorial.html), Data structures in Python
 
 Week 4: Object oriented programming and program design
 
