@@ -89,8 +89,9 @@ In [2]:
 
 ### Pasting
 
-You can paste things into the ipython console by copying text from
-your machine with **ctrl+c** and typing **%paste** at the IPython
+You can paste things into the IPython console using the standard copy
+and paste keys for your platform. If you are running IPython locally
+you can also paste by typing **%paste** at the IPython
 prompt.
 
 ### History

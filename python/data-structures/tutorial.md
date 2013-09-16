@@ -1,13 +1,12 @@
 ---
 layout: lesson
-root: ../../..
+root: ../..
 title: Data Types in Python
 ---
-**Based on lecture materials by Milad Fatenejad, Joshua R. Smith, and Will Trimble**
 
 Python would be a fairly useless language if it weren't for the compound
-data types. The main two are lists and dictionaries, but I'll mention sets
-and tuples as well. I'll also go over reading text data from files. 
+data types. The main three are lists, tuples, and dictionaries. An additional
+builtin data type is the set.
 
 ## Lists
 
@@ -45,7 +44,7 @@ In [3]: type(voltageList)
 Out[3]: <type 'list'>
 ```
 
-Python lists have the charming (annoying?) feature that they are indexed
+Python lists are indexed
 from zero. Therefore, to find the value of the first item in voltageList:
 
 ```python
@@ -195,6 +194,8 @@ temperature: 372.756
 current: [-1.0, -0.5, 0.0, 0.5, 1.0]
 voltage: [-2.0, -1.0, 0.0, 1.0, 2.0]
 ```
+
+(you can get a copy of this file at https://raw.github.com/bxlab/class-ibs-796-fall2013/gh-pages/python/data-structures/data.dat)
 
 We can read this data into a list type variable pretty easily.
 
@@ -353,3 +354,8 @@ Lists are mutable, and therefore cannot.
 When you architect software in python, most data will end up looking either
 like a list or a dictionary. These two data types are very important in
 python and you'll end up using them all the time.
+
+
+---
+
+**Based on lecture materials by The Hacker Within, Milad Fatenejad, Joshua R. Smith, and Will Trimble**
