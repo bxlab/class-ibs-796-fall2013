@@ -27,16 +27,18 @@ Week 2: Version control with Git and Github; [Part 1](git/local.html) and [Part 
 
 Week 3: [Python basics](python/vars-types/tutorial.html), [Data structures in Python](python/data-structures/tutorial.html)
 
-Week 4: Object oriented programming and program design
+Week 4: [Strings and IO](python/strings-io/tutorial.html), [Flow Control](python/flow-control/tutorial.html), [Functions and Modules](python/functions-modules/tutorial.html)
 
-Week 5: The Python standard library, and PyPI
+Week 5: Object oriented programming and program design
 
-Week 6: Databases and SQLite
+Week 6: The Python standard library, and PyPI
 
-Week 7: Numerical programming with Numpy
+Week 7: Databases and SQLite
 
-Week 8: SciPy, Scikits, and Pandas
+Week 8: Numerical programming with Numpy
 
-Week 9: BioPython
+Week 9: SciPy, Scikits, and Pandas
+
+Week 10: BioPython
 
 ...

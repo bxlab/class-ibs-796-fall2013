@@ -1,9 +1,8 @@
 ---
 layout: lesson
-root: ../../..
+root: ../..
 title: Strings and File I/O in Python
 ---
-**Prepared by Tommy Guy**
 
 Lesson goals:
 
@@ -73,16 +72,16 @@ At its heart, a string is just a sequence of characters. Basic strings are
 defined using single or double quotes.
 
 ```python
-    > s = "This is a string."
-    > s2 = 'This is another string that uses single quotes'
+> s = "This is a string."
+> s2 = 'This is another string that uses single quotes'
 ```
 
 The reason for having two types of quotes to define a string is
 emphasized in these examples:
 
 ```python
-    > s = "Bob's mom called to say hello."
-    > s = 'Bob's mom called to say hello.'
+> s = "Bob's mom called to say hello."
+> s = 'Bob's mom called to say hello.'
 ```
 
 The second one should be an error: Python interprets it as `s = 'Bob'` then the
@@ -95,7 +94,7 @@ room for non-Roman characters like accents or Eastern scripts. Unicode
 strings in Python are specified with a leading u:
 
 ```python
-    > u = u'abcdé'
+> u = u'abcdé'
 ```
 
 For the rest of this lecture, we will deal with ASCII strings, because
@@ -109,24 +108,24 @@ be applied directly to string manipulation. For instance, characters can
 be accessed individually or in sequences:
 
 ```python
-    > s = 'abcdefghijklmnopqrstuvwxyz'
-    > s[0]
-    'a'
-    > s[-1]
-    'z'
-    > s[1:4]
-    'bcd'
+> s = 'abcdefghijklmnopqrstuvwxyz'
+> s[0]
+'a'
+> s[-1]
+'z'
+> s[1:4]
+'bcd'
 ```
 
 They can also be compared using sort and equals.
 
 ```python
-    > 'str1' == 'str2'
-    False
-    > 'str1' == 'str1'
-    True
-    > 'str1' < 'str2'
-    True
+> 'str1' == 'str2'
+False
+> 'str1' == 'str1'
+True
+> 'str1' < 'str2'
+True
 ```
 
 In the help screen, which we looked at above, there are lots of
@@ -151,14 +150,30 @@ Try each of the following functions on a few strings. What does the
 function do?
 
 ```python
-    > s = "This is a string"
-    > s.startswith("This")
-    > s.split(" ")
-    > s.strip() # This won't change every string!
-    > s.capitalize()
-    > s.capwords()
-    > s.lower()
-    > s.upper()
+> s = "This is a string"
+> s.startswith("This")
+> s.split(" ")
+> s.strip() # This won't change every string!
+> s.capitalize()
+> s.capwords()
+> s.lower()
+> s.upper()
+```
+
+**Short Excercise** 
+
+Because the binding strength of guanine (G) to cytosine (C) is different from the binding strength of adenine (A) to thymine (T) (and many other differences), it is often useful to know the fraction of a DNA sequence that is G's or C's. Go to the string method section of the Python documentation and find the string method that will allow you to calculate this fraction.
+
+```python
+# Calculate the fraction of G's and C's in this DNA sequence
+seq1 = 'ACGTACGTAGCTAGTAGCTACGTAGCTACGTA'
+gc = ?
+```
+
+You can check if you got the right answer:
+
+```python
+round(gc, ndigits = 2) == .47
 ```
 
 File I/O
@@ -189,7 +204,7 @@ that contains one line:
 Now let's open this file in Python:
 
 ```python
-    > fileHandle = open('testFile.txt','r')
+> fileHandle = open('testFile.txt','r')
 ```
 
 The second input, 'r' means I want to open the file for reading only. I
@@ -197,9 +212,9 @@ can not write to this handle. The read() command will read a specified
 number of bytes:
 
 ```python
-    > s = fileHandle.read(3)
-    > print s
-    abc
+> s = fileHandle.read(3)
+> print s
+abc
 ```
 
 We read the first three characters, where each character is a byte long.
@@ -207,10 +222,10 @@ We can see that the file handle points to the 4th byte (index number 3)
 in the file:
 
 ```python
-    > fileHandle.tell()
-    3L
-    > fileHandle.read(1)
-    'd'
+> fileHandle.tell()
+3L
+> fileHandle.read(1)
+'d'
 ```
 
 The file we are using is a long series of characters, but two of the
@@ -220,11 +235,11 @@ lines is popular enough that there are two ways to read whole lines in a
 file. The first is to use the readlines() method:
 
 ```python
-    > fileHandle.close() # close the old handle
-    > fileHandle = open('testFile.txt','r')
-    > lineArr = fileHandle.readlines()
-    > lineArr
-    ['abcde\n', 'fghij\n']
+> fileHandle.close() # close the old handle
+> fileHandle = open('testFile.txt','r')
+> lineArr = fileHandle.readlines()
+> lineArr
+['abcde\n', 'fghij\n']
 ```
 
 A very important point about the readline method is that it *keeps* the
@@ -235,15 +250,15 @@ File handles are also iterable, which means we can use them in for loops
 or list extensions:
 
 ```python
-    > f = open('testFile.txt','r')
-    > l = [s.strip() for s in f]
-    > l
-    ['abcde', 'fghij']
-    > f.close()
-    > l = []
-    > f = open('testFile.txt','r')
-    > for s in f:
-         l.append(s.strip())
+> f = open('testFile.txt','r')
+> l = [s.strip() for s in f]
+> l
+['abcde', 'fghij']
+> f.close()
+> l = []
+> f = open('testFile.txt','r')
+> for s in f:
+     l.append(s.strip())
 ```
 
 These are equivalent operations. It's often best to handle a file one
@@ -272,8 +287,8 @@ to the file without losing what is already there, open it with 'a'.
 Writing to a file uses the write() command, which accepts a string.
 
 ```python
-    > outFile = open('outfile.txt','w')
-    > outFile.write('This is the first line!')
+> outFile = open('outfile.txt','w')
+> outFile.write('This is the first line!')
 ```
 
 Another way to write to a file is to use writelines(), which accepts a
@@ -281,14 +296,7 @@ list of strings and writes them in order. *Caution!* writelines does not
 append newlines. If you really want to write a newline at the end of
 each string in the list, add it yourself.
 
-Aside: The first exercise
-=========================
 
-Yesterday, we asked you to edit a file in place. Many of you asked how
-this was possible. The answer is that it is not. You can use f.seek()
-and f.tell() to verify that even if your file handle is pointing to the
-middle of a file, write commands go to the end of the file in append
-mode. The best way to change a file is to open a temporary file in
-/tmp/, fill it, and then move it to overwrite the original. On large
-clusters, /tmp/ is often local to each node, which means it reduces I/O
-bottlenecks associated with writing large amounts of data.
+===
+
+**Based on materials from Tommy Guy**

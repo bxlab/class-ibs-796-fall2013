@@ -43,15 +43,11 @@ So now would be a good time to roll out [PEP 20, The Zen of Python] (http://www.
 ## IPython
 
 You can run python commands in a handful of ways; you can create
-executable scripts, you can run the python interpreter, you can run
-IPython, or you can run IPython notebook.  IPython is an alternative
-to the built-in Python interpreter with some nice features.  IPython
-notebook gives you interactive access to the python interpreter from
-within a browser window, and it allows you to save your commands as a
-"notebook".  Lets give the built-in interpreter a spin.
+executable scripts, you can run the python interpreter, or you can run
+IPython.  IPython is an alternative to the built-in Python interpreter with some nice features. Lets give the built-in interpreter a spin.
 
 ```
-swc@swc:~$ python
+username@host:~$ python
 Python 2.7.3 (default, Apr 20 2012, 22:44:07) 
 [GCC 4.6.3] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
@@ -66,7 +62,7 @@ command line.
 Create the file `hello.py` by running the following, or using an editor
 
 ```
-swc@swc:~$ echo 'print "hello world"' > hello.py
+username@host:~$ echo 'print "hello world"' > hello.py
 ```
 
 Now the print command above is located
@@ -74,14 +70,14 @@ in the file hello.py. We can run this file through the Python
 interpreter by executing
 
 ```
-swc@swc:~$ python hello.py
+username@host:~$ python hello.py
 ```
 
 IPython has more useful features for interactive use than the standard
 python interpreter, so we'll use it from here on out.
 
 ```python
-swc@swc:~$ ipython
+username@host:~$ ipython
 In [1]: print "hello world"
 hello world
 In [2]: 

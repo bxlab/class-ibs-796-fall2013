@@ -1,30 +1,41 @@
 ---
 layout: lesson
-root: ../../..
+root: ../..
 title: Flow Control in Python
 ---
-**Based on materials by Milad Fatenejad and Katy Huff**
 
-Pasting into IPython
-====================
+## For Loops
 
-This part of the lesson includes a lot of text, but it will be useful to
-run it yourself in IPython.
+Iteration is a very useful concept, and it appears all the time in python. Lets consider our current and voltage data again.
 
-To paste text from another application (i.e. these lecture notes) into
-IPython :
+```python
+In [1]: voltageList = [-2.0, -1.0, 0.0, 1.0, 2.0]
 
-1.  select text from the wiki
-2.  copy with **ctrl+c**
-3.  in IPython, type `%paste`
+In [2]: currentList = [-1.0, -0.5, 0.0, 0.5, 1.0]
+```
 
-The code should paste and execute in IPython.
+We know that power is the product of current and voltage. We already have the current as a function of voltage, but what if we wanted to generate a list of values of power coresponding to the value of voltage? We use a for loop.
 
-If you also type %autocall to turn autocall OFF, you may be able to
-paste with **ctrl+v** though this won't work with all IPython builds.
+```python
+In [3]: powerList = [] # Initialize an empty list to be filled later.
+In [4]: indxList = range(len(currentList))
 
-Conditionals
-============
+In [5]: for indx in indxList:
+   ....:    power = voltageList[indx] * currentList[indx]
+   ....:    powerList.append(power)
+``` 
+
+There's a lot of stuff that just happened here. Lets break it down.
+
+### Indentation
+
+The indentation is a feature of python that some people hate. Some other programming languages use brackets to denote a command block. Python uses indentation. The amount of indentation doesn't matter, so long as everything in the same block is indented the same amount.
+
+The for loop itself is pretty simple: we take a list (in this case), pull out the presently indexed value, and execute the block below the for command. Once the block has been executed, the for loop increments to the next index and keeps going to the end.
+
+The range command gives us an incremental list of values. We are using it to generate our lists of indices for our for loop iteration.
+
+## Conditionals
 
 A conditional (if statement) is some statement that in general says :
 "When some boolean is true, do the following. Elsewise, do this other
@@ -125,8 +136,7 @@ i = 5
 sign = "positive" if i > 0 else "negative"
 ```
 
-While Loops
-===========
+## While Loops
 
 Lets start by looking at while loops since they function like while
 loops in many other languages. The example below takes a list of
@@ -139,19 +149,25 @@ conditional that defines it is no longer true.
 ```python
 mult = 1
 sequence = [1, 5, 7, 9, 3, -1, 5, 3]
-while sequence[0] != -1:
-  mult = mult * sequence[0]
-  del sequence[0]
+while sequence[0] is not -1:
+    mult = mult * sequence[0]
+    del sequence[0]
 
 print mult
 ```
 
 Some new syntax has been introduced in this example.
 
+-   On line 3 We begin the while loop. Notice that instead of using the
+    not-equals symbol, !=, we can simply enter "is not" which is easier
+    to read. This while loop will execute until sequence[0]= -1 . That
+    is, until deletes all of the entries of the sequence that come
+    before -1.
+
 -   On line 4, we compute the product of the elements just to make this
     more interesting.
 
--   On line 5, we use the `del` keyword to remove the first element of
+-   On line 5, we use the \`del\` keyword to remove the first element of
     the list, shifting every element down one.
 
 **Watch Out**
@@ -162,27 +178,19 @@ true, a **poorly formed** while loop might repeat forever. For example :
 ```python
 i=1
 print "Well, there's egg and bacon, egg and spam, egg bacon and"
-while i == 1:
+while i is 1:
   print "spam "
 print "or Lobster Thermidor a Crevette with a mornay sauce served in a Provencale manner with shallots..." 
 ```
 
-Since the variable `i` never changes within the while loop, we can
-expect that the conditional, `i==1` will remain true forever and the
+Since the variable **i** never changes within the while loop, we can
+expect that the conditional, **i=1** will remain true forever and the
 while loop will just go round and round, as if this restaurant offered
-nothing but spam. (If you try this at home, please nory, or other iterable). However, sometimes you may need the index value at the same time, for example for some calculation. The `enumerate` function generates the integer index for you, which can be used instead of the `range` function. The following two loops are equivalent:
-
-```python
-data_list = [23,45,67]
-
-for i in range(len(data_list)):
-    print data_list[i], ' is item number ', i, ' in the list'
-
-for i,d in enumerate(data_list):
-    print d, ' is item number ', i, ' in the list'
+nothing but spam. (If you try this at home, please note that one way to
+interrupt a non-terminating process is **ctrl+c** or **ctrl+z**.
 ```
 
-###zip###
+## zip
 
 For iterating through multiple sequences, `zip` can be used to group them together to simultaneous pass through each sequence:
 
@@ -201,8 +209,10 @@ Final Example
 We've seen a lot so far. Lets work through a slightly lengthier example
 together. I'll use some of the concepts we already saw and introduce a
 few new concepts. To run the example, you'll need to locate a short file
-containing phone numbers. The file can be found in your 
-repository within the phonenums directory and is called phonenums.txt. 
+containing phone numbers. The file can be found at the URL: 
+
+  https://raw.github.com/bxlab/class-ibs-796-fall2013/gh-pages/python/flow-control/phonenums.txt. 
+
 Now we have to move IPython to that directory so it can find the
 phonenums.txt file. You navigate within IPython in the same way that you
 navigate in the shell, by entering "cd [path]" .
@@ -240,4 +250,7 @@ other words, the goal is to write a loop that prints:
     608 8
     773 3
 
-This example is a little tricky to figure out, but give it a shot.
+
+====
+
+**Based on materials by The Hacker Within, Joshua R. Smith, Milad Fatenejad and Katy Huff**
