@@ -29,7 +29,7 @@ Week 3: [Python basics](python/vars-types/tutorial.html), [Data structures in Py
 
 Week 4: [Strings and IO](python/strings-io/tutorial.html), [Flow Control](python/flow-control/tutorial.html), [Functions and Modules](python/functions-modules/tutorial.html)
 
-Week 5: Object oriented programming and program design
+Week 5: [Object oriented programming](python/obj_orientation/tutorial.html), [Debugging](python/debugging/tutorial.html), [Testing](python/testing/tutorial.html)
 
 Week 6: The Python standard library, and PyPI
 
