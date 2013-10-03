@@ -120,7 +120,7 @@ def mean(numlist):
 Where, in a different file exists a test module:
 
 ```python
-import mean
+from mean import mean
 
 def test_mean():
     assert mean([0, 0, 0, 0]) == 0
