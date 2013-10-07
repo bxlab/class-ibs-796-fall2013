@@ -7,7 +7,11 @@ title: The Python Standard Library, and PyPI.
 
 # Standard Library
 
-Quoting from the [About Python](http://www.python.org/about/) page, 'Fans of Python use the phrase "batteries included" to describe the standard library, which covers everything from asynchronous processing to zip files.'
+Quoting from the [About Python](http://www.python.org/about/) page, 
+
+> Fans of Python use the phrase "batteries included" to describe the standard library, which covers everything from asynchronous processing to zip files.
+
+The Python standlard library is very comprehensive, and anywhere Python is installed *should* have the entire standard library available by default. 
 
 The documentation for the Python 2 standard library can be found [here](http://docs.python.org/2/library/). 
 
