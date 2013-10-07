@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## IBS 576: Basic Programming for Bioinformatics
+## IBS 796: Basic Programming for Bioinformatics
 
 ### Fall 2013, Emory University
 
