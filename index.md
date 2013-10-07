@@ -31,14 +31,12 @@ Week 4: [Strings and IO](python/strings-io/tutorial.html), [Flow Control](python
 
 Week 5: [Object oriented programming](python/obj_orientation/tutorial.html), [Debugging](python/debugging/tutorial.html), [Testing](python/testing/tutorial.html)
 
-Week 6: The Python standard library, and PyPI
+Week 6: [The Python standard library and PyPI](python/stdlib-and-pip/tutorial.html), [Numerical programming with Numpy](python/numpy/tutorial.html), [Plotting with Matplotlib](python/matplotlib/tutorial.html)
 
 Week 7: Databases and SQLite
 
-Week 8: Numerical programming with Numpy
+Week 8: SciPy, Scikits, and Pandas
 
-Week 9: SciPy, Scikits, and Pandas
-
-Week 10: BioPython
+Week 9: BioPython
 
 ...
