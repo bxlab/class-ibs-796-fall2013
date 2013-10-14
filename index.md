@@ -33,7 +33,7 @@ Week 5: [Object oriented programming](python/obj_orientation/tutorial.html), [De
 
 Week 6: [The Python standard library and PyPI](python/stdlib-and-pip/tutorial.html), [Numerical programming with Numpy](python/numpy/tutorial.html), [Plotting with Matplotlib](python/matplotlib/tutorial.html)
 
-Week 7: [First Exercise](exercise1.md)
+Week 7: [First Exercise](exercise1.html)
 
 Week 8: Databases and SQLite
 
