@@ -35,10 +35,13 @@ Week 6: [The Python standard library and PyPI](python/stdlib-and-pip/tutorial.ht
 
 Week 7: [First Exercise](exercise1.html)
 
-Week 8: Databases and SQLite
+Week 8: [First Exercise continued](exercise1b.html)
 
-Week 9: SciPy, Scikits, and Pandas
 
-Week 10: BioPython
+Week 9: Databases and SQLite
+
+Week 10: SciPy, Scikits, and Pandas
+
+Week 11: BioPython
 
 ...
