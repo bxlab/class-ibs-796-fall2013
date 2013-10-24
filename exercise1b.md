@@ -55,11 +55,10 @@ for line in sys.stdin:
     # 0 to 2 indicating number of non-reference alleles
     next = array( [ sum( map( int, gt.split(":")[0].split("|") ) ) for gt in fields[9:] ] )
     # Continue if this is the first SNP we've seen
-    if last is None:
-        continue
-    # Print the LD as determined by computing the correlation coefficient
-    # (corrcoef returns a 2x2 symmetric matrix in this case)
-    print last_name, name, corrcoef( next, last )[0,1]
+    if last is not None:
+        # Print the LD as determined by computing the correlation coefficient
+        # (corrcoef returns a 2x2 symmetric matrix in this case)
+        print last_name, name, corrcoef( next, last )[0,1]
     # Current becomes previous for next iteration
     last = next
     last_name = name
