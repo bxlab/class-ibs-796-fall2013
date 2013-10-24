@@ -37,11 +37,14 @@ Week 7: [First Exercise](exercise1.html)
 
 Week 8: [First Exercise continued](exercise1b.html)
 
+Week 9: [Second Exercise](exercise2.html)
 
-Week 9: Databases and SQLite
+...
 
-Week 10: SciPy, Scikits, and Pandas
+Week N: Databases and SQLite
 
-Week 11: BioPython
+Week N+1: SciPy, Scikits, and Pandas
+
+Week N+2: BioPython
 
 ...
