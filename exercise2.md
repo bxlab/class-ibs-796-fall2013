@@ -21,4 +21,4 @@ Accurate timing requires running a program many times and taking the average of 
 
 ### Data file to test on
 
-[genome.fz.gz](ihttp://bx.mathcs.emory.edu/outgoing/genome.fa.gz)
+[genome.fz.gz](http://bx.mathcs.emory.edu/outgoing/genome.fa.gz)
