@@ -39,6 +39,8 @@ Week 8: [First Exercise continued](exercise1b.html)
 
 Week 9: [Second Exercise](exercise2.html)
 
+Week 10: [Third Exercise](exercise3.html)
+
 ...
 
 Week N: Databases and SQLite
