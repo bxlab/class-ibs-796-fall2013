@@ -41,6 +41,8 @@ Week 9: [Second Exercise](exercise2.html)
 
 Week 10: [Third Exercise](exercise3.html)
 
+Week 11: [Fourth Exercise](exercise4.html)
+
 ...
 
 Week N: Databases and SQLite
