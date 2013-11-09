@@ -4,7 +4,7 @@ layout: default
 
 ### Fourth Exercise
 
-You will have two input files: train.fa and test.fa.
+You will have two input files: [train.fa](data/train.fa) and [test.fa](data/test.fa).
 
 Both will contain multiple fasta records with names. 
 
